@@ -16,4 +16,8 @@ public class Bar {
 		return this.clientes.size();
 	}
 
+	public TreeSet<Persona> obtenerClientes() {
+		return (TreeSet<Persona>) this.clientes;
+	}
+
 }

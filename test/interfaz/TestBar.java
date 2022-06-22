@@ -36,7 +36,17 @@ public class TestBar {
 	
 	@Test
 	public void queEstenOrdenados() {
+		Bar bar = new Bar();
+		Persona personaUno = new Persona("ganas de jugar counter me sobran");
+		Persona personaDos = new Persona("poppy te amo");
+		bar.agregarCliente(personaUno);
+		bar.agregarCliente(personaDos);
 		
+		String valorEsperado = "ganas de jugar counter me sobran";
+		Persona valorObtenido = bar.obtenerClientes().first(); 
+		// el metodo first() devuelve el primero de los elementos de un TreeSet.
+		// el primer elemento es el mas bajo o pequeño (Integer) de los elementos del conjunto
+		assertEquals(valorEsperado, valorObtenido.getNombre());
 	}
 	
 }
