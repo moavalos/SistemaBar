@@ -2,12 +2,11 @@ package dominio;
 
 import java.util.Objects;
 
-public class Persona  implements Comparable<Persona>{
-	
+public class Persona implements Comparable<Persona> {
+
 	private String nombre;
 
 	public Persona(String nombre) {
-		// TODO Auto-generated constructor stub
 		this.nombre = nombre;
 	}
 
@@ -21,18 +20,28 @@ public class Persona  implements Comparable<Persona>{
 
 	@Override
 	public int compareTo(Persona o) {
-		// TODO Auto-generated method stub
-		//return 0;
 		return this.nombre.compareTo(o.nombre);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(nombre);
+		//return Objects.hash(nombre);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Persona other = (Persona) obj;
+//		return Objects.equals(nombre, other.nombre);
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -40,7 +49,12 @@ public class Persona  implements Comparable<Persona>{
 		if (getClass() != obj.getClass())
 			return false;
 		Persona other = (Persona) obj;
-		return Objects.equals(nombre, other.nombre);
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		return true;
 	}
 
 }

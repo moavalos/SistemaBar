@@ -25,7 +25,13 @@ public class TestBar {
 	
 	@Test 
 	public void queSeAdmitanDistintos() {
-		
+		Bar barcote = new Bar();
+		Persona p1 = new Persona("Marta");
+		Persona p2 = new Persona("Agustin");
+		barcote.agregarCliente(p1);
+		barcote.agregarCliente(p2);
+		Integer valorEsperado = 2;
+		assertEquals(valorEsperado, barcote.obtenerCantidadDeClientes());
 	}
 	
 	@Test
